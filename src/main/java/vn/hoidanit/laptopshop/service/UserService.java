@@ -5,6 +5,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
     public String handleHello() {
-        return "Hello by Sainoo !!";
+        return "Hello by Sainoo from service";
     }
 }
