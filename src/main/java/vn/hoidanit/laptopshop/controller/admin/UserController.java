@@ -1,4 +1,4 @@
-package vn.hoidanit.laptopshop.controller;
+package vn.hoidanit.laptopshop.controller.admin;
 
 import java.util.List;
 
@@ -22,14 +22,6 @@ public class UserController {
     public UserController(UserService userService) {
         this.userService = userService;
 
-    }
-
-    @RequestMapping("/")
-    public String getHomePage(Model model) {
-
-        model.addAttribute("object1", "test");
-        model.addAttribute("object2", "Hello from controller");
-        return "hello";
     }
 
     @RequestMapping("/admin/user/create")
