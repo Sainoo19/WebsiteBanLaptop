@@ -42,9 +42,7 @@
                                                         <th scope="col">Id</th>
                                                         <th scope="col">Email</th>
                                                         <th scope="col">Full Name</th>
-                                                        <th scope="col">Phone</th>
-                                                        <th scope="col">Address</th>
-                                                        <th scope="col">Password</th>
+                                                        <th scope="col">Role</th>
                                                         <th scope="col">Action</th>
 
                                                     </tr>
@@ -55,9 +53,7 @@
                                                             <th>${user.id}</th>
                                                             <td>${user.email}</td>
                                                             <td>${user.fullName}</td>
-                                                            <td>${user.phone}</td>
-                                                            <td>${user.address}</td>
-                                                            <td>${user.password}</td>
+                                                            <td>${user.role.name}</td>
                                                             <td>
                                                                 <a href="/admin/user/${user.id}"
                                                                     class="btn btn-success">View</a>
@@ -84,7 +80,7 @@
                 </div>
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
                     crossorigin="anonymous"></script>
-                <script src="js/scripts.js"></script>
+                <script src="/js/scripts.js"></script>
 
             </body>
 

@@ -12,6 +12,26 @@
                 <meta name="author" content="Hỏi Dân IT" />
                 <title>Product</title>
                 <link href="/css/styles.css" rel="stylesheet" />
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+                <script>
+                    $(document).ready(() => {
+                        const avatarFile = $("#avatarFile");
+                        const avatarPreview = $("#avatarPreview");
+                        const currentAvatarUrl = "${avatarUrl}"; // URL của avatar hiện tại
+
+                        if (currentAvatarUrl) {
+
+                            avatarPreview.attr("src", currentAvatarUrl);
+                            avatarPreview.css({ "display": "block" });
+                        }
+
+                        avatarFile.change(function (e) {
+                            const imgURL = URL.createObjectURL(e.target.files[0]);
+                            avatarPreview.attr("src", imgURL);
+                            avatarPreview.css({ "display": "block" });
+                        });
+                    });
+                </script>
                 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
             </head>
 
@@ -38,7 +58,15 @@
                                                     <label class="form-label">Id:</label>
                                                     <form:input type="text" class="form-control" path="id" />
                                                 </div>
-
+                                                <div class="mb-3 col-12 col-md-6">
+                                                    <label for="avatarFile" class="form-label">Avatar:</label>
+                                                    <input class="form-control" type="file" id="avatarFile"
+                                                        accept=".png, .jpg, .jpeg" name="avatarFile" />
+                                                </div>
+                                                <div class="col-12 mb-3">
+                                                    <img style="max-height: 250px; display: none;" alt="avatar preview"
+                                                        id="avatarPreview" />
+                                                </div>
                                                 <div class="mb-3">
                                                     <label class="form-label">Email:</label>
                                                     <form:input type="email" class="form-control" path="email"
@@ -75,7 +103,7 @@
                 </div>
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
                     crossorigin="anonymous"></script>
-                <script src="js/scripts.js"></script>
+                <script src="/js/scripts.js"></script>
 
             </body>
 
