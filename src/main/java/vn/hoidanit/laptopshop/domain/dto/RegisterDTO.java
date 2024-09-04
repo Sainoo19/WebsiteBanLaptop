@@ -1,13 +1,26 @@
 package vn.hoidanit.laptopshop.domain.dto;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import vn.hoidanit.laptopshop.service.validator.RegisterChecked;
+import vn.hoidanit.laptopshop.service.validator.StrongPassword;
 
 @RegisterChecked
 public class RegisterDTO {
+    @NotNull
+    @Size(min = 3, message = "Firstname phải có tối thiểu 3 ký tự")
     private String firstName;
+    @NotNull
+    @Size(min = 3, message = "Lastname phải có tối thiểu 3 ký tự")
     private String lastName;
+    @NotNull
+    @Email(message = "Email không hợp lệ", regexp = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$")
     private String email;
+    @NotNull
+    @StrongPassword(message = "Password cần tối thiểu 8 kí tự")
     private String password;
+    // @StrongPassword( message = "Password cần tối thiểu 8 kí tự")
     private String confirmPassword;
 
     public String getFirstName() {
