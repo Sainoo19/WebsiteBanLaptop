@@ -18,6 +18,13 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;;
     private double totalPrice;
+    private String receiverName;
+
+    private String receiverAddress;
+
+    private String receiverPhone;
+
+    private String status;
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
@@ -27,9 +34,14 @@ public class Order {
     public Order() {
     }
 
-    public Order(long id, double totalPrice, User user, List<OrderDetail> orderDetails) {
+    public Order(long id, double totalPrice, String receiverName, String receiverAddress, String receiverPhone,
+            String status, User user, List<OrderDetail> orderDetails) {
         this.id = id;
         this.totalPrice = totalPrice;
+        this.receiverName = receiverName;
+        this.receiverAddress = receiverAddress;
+        this.receiverPhone = receiverPhone;
+        this.status = status;
         this.user = user;
         this.orderDetails = orderDetails;
     }
@@ -48,6 +60,38 @@ public class Order {
 
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
+    }
+
+    public String getReceiverName() {
+        return receiverName;
+    }
+
+    public void setReceiverName(String receiverName) {
+        this.receiverName = receiverName;
+    }
+
+    public String getReceiverAddress() {
+        return receiverAddress;
+    }
+
+    public void setReceiverAddress(String receiverAddress) {
+        this.receiverAddress = receiverAddress;
+    }
+
+    public String getReceiverPhone() {
+        return receiverPhone;
+    }
+
+    public void setReceiverPhone(String receiverPhone) {
+        this.receiverPhone = receiverPhone;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public User getUser() {
